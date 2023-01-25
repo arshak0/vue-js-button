@@ -1,0 +1,174 @@
+@import './base.scss';
+@import './colors.scss';
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+@mixin flex-columns ($gap) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+@mixin flex-rows ($gap) {
+  display: flex;
+  flex-direction: row;
+  gap: $gap;
+}
+
+@mixin black-text-with-background ($color) {
+  background: $color;
+  color: #FFFFFF;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+
+  #app {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    font-weight: normal;
+
+    main {
+      @include flex-columns (20px);
+      min-height: 50vh;
+      align-items: start;
+    }
+
+    .animation {
+      @include flex-columns (55px);
+      vertical-align: center;
+      padding: 30px;
+      width: 430px;
+      height: 40vh;
+      border: 1px solid green;
+      border-radius: 6px;
+    }
+
+    .logo {
+      width: 25px;
+      height: 20px;
+    }
+
+    .div--app-wrapper {
+      @include flex-columns (0);
+      width: 100%;
+      height: 100%;
+      padding: 2rem;
+    }
+
+    .div--buttons-wrapper {
+      @include flex-rows (30px);
+    }
+
+    a,
+    .green {
+      text-decoration: none;
+      color: hsla(160, 100%, 37%, 1);
+      transition: 0.4s;
+    }
+
+    button {
+      width: 200px;
+      height: 56px;
+      cursor: pointer;
+      font-family: Inter;
+      font-size: 16px;
+      line-height: 19px;
+      border: none;
+      border-radius: 12px;
+    }
+
+    button.button-wrapper__button--tooltip {
+      @include black-text-with-background($primary-color);
+    }
+
+    button.animation__button--tooltip {
+      @include black-text-with-background($primary-color);
+      width: 150px;
+      height: 46px;
+      font-size: 13px;
+      line-height: 15px;
+    }
+
+    .animation__button--restart {
+      @include black-text-with-background($tertiary-color);
+      width: 150px;
+      height: 46px;
+      font-size: 13px;
+      line-height: 15px;
+    }
+
+    button.button-wrapper__button--tooltip:hover {
+      background: $primary-color-hover;
+    }
+
+    button.button-wrapper__button--tooltip:active {
+      background: $primary-color-clicked;
+    }
+
+    button.button-wrapper__button--restart {
+      @include black-text-with-background($tertiary-color);
+    }
+
+    button.button-wrapper__button--restart:hover {
+      background: $tertiary-color-hover;
+    }
+
+    button.button-wrapper__button--restart:active {
+      background: $tertiary-color-clicked;
+    }
+
+    .tooltip-wrapper {
+      position: absolute;
+      @include black-text-with-background($secondary-color);
+      font-family: Arial;
+      font-size: 12px;
+      line-height: 13.8px;
+      width: 200px;
+      height: 62px;
+      padding: 10px 12px 10px 12px;
+      border-radius: 6px;
+      z-index:1;
+
+      .tooltip-wrapper__p {
+        text-align: center;
+      }
+    }
+
+    .animation-tooltip-wrapper {
+      position: absolute;
+      @include black-text-with-background($secondary-color);
+      font-family: Arial;
+      font-size: 10px;
+      line-height: 12px;
+      width: 160px;
+      height: 52px;
+      padding: 7px 9px 7px 9px;
+      border-radius: 6px;
+      z-index:1;
+
+      .animation-tooltip-wrapper__p {
+        text-align: center;
+      }
+    }
+
+    .tooltip-wrapper:hover {
+      background: $secondary-color-hover;
+    }
+
+    @media (hover: hover) {
+      a:hover {
+        background-color: hsla(160, 100%, 37%, 0.2);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      #app {
+        display: block;
+      }
+    }
+  }
+}
+
+
