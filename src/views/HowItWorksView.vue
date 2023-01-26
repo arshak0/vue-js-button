@@ -34,7 +34,7 @@ export default defineComponent({
           this.tooltip = 0;
         }, 200)
       }
-    },1200)
+    },3200)
   }
 });
 
